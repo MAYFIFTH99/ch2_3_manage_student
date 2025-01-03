@@ -7,6 +7,22 @@ public class Student {
   private final String address;
   private boolean activated;
 
+  public void activate(){
+    if(activated){
+      throw new IllegalStateException("Student is already activated");
+    }
+    activated = true;
+  }
+
+  public void deactivate(){
+    if(!activated){
+      throw new IllegalStateException("Student is already activated");
+    }
+    activated = false;
+  }
+
+
+
   public Student(String name, int age, String address) {
     if (name == null || name.isEmpty()) {
       throw new IllegalArgumentException("이름은 필수 입력값입니다.");
